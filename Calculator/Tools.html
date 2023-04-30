@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+       
+     <style>
+
+  *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: none;
+    background-color: rgb(87, 115, 143);
+    
+  }
+  
+  .container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cal{
+    background-color: #9fb9ca;
+    padding: 15px 15px;
+    height: 60vh;
+    border-radius: 30px;
+    border: 2px solid rgb(163, 112, 112);
+    box-shadow: inset 5px 5px 12px rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(4,68px);
+  }
+  input{
+    grid-column: span 4;
+    height: 50px;
+    width: 260px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #e0d3d3;
+    border-radius: 20px;
+    box-shadow: inset 2px 2px 5px rgb(#865a5a, #eebaba, #f3bbbb);
+  }
+  
+  button{
+    height: 30px;
+    width: 50px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(223, 137, 137);
+    box-shadow: -5px -5px 12px rgba(0, 0, 0,1);
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .del{
+    grid-column: span 4;
+    width: 260px;
+  }
+  
+
+     </style>
+
+</head>
+<body>
+
+     <div class="container">
+    <div class="cal">
+    <input type="text" placeholder="0" id="screen">
+    
+    <button onclick="display('9')">9</button>
+    <button onclick="display('8')">8</button>
+    <button onclick="display('7')">7</button>
+    <button onclick="display('+')">+</button>
+
+    <button onclick="display('6')">6</button>
+    <button onclick="display('5')">5</button>
+    <button onclick="display('4')">4</button>
+    <button onclick="display('-')">-</button>
+
+    <button onclick="display('3')">3</button>
+    <button onclick="display('2')">2</button>
+    <button onclick="display('1')">1</button>
+    <button onclick="display('*')">*</button>
+
+    <button onclick="display('0')">0</button>
+    <button onclick="display('/')">/</button>
+    <button onclick="display('%')">%</button>
+    <button onclick="calculate( )">=</button>
+    <button onclick="del( )" class="del">Delete</button>
+    </div>
+     </div>
+
+<script>
+  let screen=document.getElementById("screen");
+  function display(num){
+     screen.value +=num;
+  }
+  function calculate(){
+    
+      screen.value=eval(screen.value);
+    
+    }
+    function del(){
+    screen.value=screen.value.slice(0,-1);
+    }
+  
+  
+  
+</script>
+   </body>
+</html>
